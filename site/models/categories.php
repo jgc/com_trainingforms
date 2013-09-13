@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -13,24 +13,24 @@ defined('_JEXEC') or die;
  * This models supports retrieving lists of article categories.
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.6
  */
-class WeblinksModelCategories extends JModelList
+class trainingformsModelCategories extends JModelList
 {
 	/**
 	 * Model context string.
 	 *
 	 * @var		string
 	 */
-	public $_context = 'com_weblinks.categories';
+	public $_context = 'com_trainingforms.categories';
 
 	/**
 	 * The category context (allows other extensions to derived from this model).
 	 *
 	 * @var		string
 	 */
-	protected $_extension = 'com_weblinks';
+	protected $_extension = 'com_trainingforms';
 
 	private $_parent = null;
 
@@ -100,7 +100,7 @@ class WeblinksModelCategories extends JModelList
 			}
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_num_links', 1) || !$params->get('show_empty_categories_cat', 0);
-			$categories = JCategories::getInstance('Weblinks', $options);
+			$categories = JCategories::getInstance('trainingforms', $options);
 			$this->_parent = $categories->get($this->getState('filter.parentId', 'root'));
 			if (is_object($this->_parent))
 			{

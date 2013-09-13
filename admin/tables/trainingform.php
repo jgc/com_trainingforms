@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblink Table class
+ * Trainingform Table class
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksTableWeblink extends JTable
+class TrainingformsTableTrainingform extends JTable
 {
 	/**
 	 * Constructor
@@ -25,7 +25,7 @@ class WeblinksTableWeblink extends JTable
 	 */
 	public function __construct(&$db)
 	{
-		parent::__construct('#__weblinks', 'id', $db);
+		parent::__construct('#__trainingforms', 'id', $db);
 	}
 
 	/**
@@ -66,7 +66,7 @@ class WeblinksTableWeblink extends JTable
 	}
 
 	/**
-	 * Overload the store method for the Weblinks table.
+	 * Overload the store method for the Trainingforms table.
 	 *
 	 * @param   boolean	Toggle whether null values should be updated.
 	 * @return  boolean  True on success, false on failure.
@@ -85,7 +85,7 @@ class WeblinksTableWeblink extends JTable
 		}
 		else
 		{
-			// New weblink. A weblink created and created_by field can be set by the user,
+			// New trainingform. A trainingform created and created_by field can be set by the user,
 			// so we don't touch either of these if they are set.
 			if (!(int) $this->created)
 			{
@@ -110,11 +110,11 @@ class WeblinksTableWeblink extends JTable
 		}
 
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Weblink', 'WeblinksTable');
+		$table = JTable::getInstance('Trainingform', 'TrainingformsTable');
 
 		if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0))
 		{
-			$this->setError(JText::_('COM_WEBLINKS_ERROR_UNIQUE_ALIAS'));
+			$this->setError(JText::_('COM_trainingformS_ERROR_UNIQUE_ALIAS'));
 			return false;
 		}
 
@@ -133,25 +133,25 @@ class WeblinksTableWeblink extends JTable
 	{
 		if (JFilterInput::checkAttribute(array ('href', $this->url)))
 		{
-			$this->setError(JText::_('COM_WEBLINKS_ERR_TABLES_PROVIDE_URL'));
+			$this->setError(JText::_('COM_trainingformS_ERR_TABLES_PROVIDE_URL'));
 			return false;
 		}
 
 		// check for valid name
 		if (trim($this->title) == '')
 		{
-			$this->setError(JText::_('COM_WEBLINKS_ERR_TABLES_TITLE'));
+			$this->setError(JText::_('COM_trainingformS_ERR_TABLES_TITLE'));
 			return false;
 		}
 
 		// check for existing name
-		$query = 'SELECT id FROM #__weblinks WHERE title = '.$this->_db->quote($this->title).' AND catid = '.(int) $this->catid;
+		$query = 'SELECT id FROM #__trainingforms WHERE title = '.$this->_db->quote($this->title).' AND catid = '.(int) $this->catid;
 		$this->_db->setQuery($query);
 
 		$xid = (int) $this->_db->loadResult();
 		if ($xid && $xid != (int) $this->id)
 		{
-			$this->setError(JText::_('COM_WEBLINKS_ERR_TABLES_NAME'));
+			$this->setError(JText::_('COM_trainingformS_ERR_TABLES_NAME'));
 			return false;
 		}
 

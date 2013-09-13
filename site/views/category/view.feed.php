@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,20 +10,20 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML View class for the WebLinks component
+ * HTML View class for the trainingforms component
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.0
  */
-class WeblinksViewCategory extends JViewLegacy
+class trainingformsViewCategory extends JViewLegacy
 {
 	public function display($tpl = null)
 	{
 		$app      = JFactory::getApplication();
 		$document = JFactory::getDocument();
 
-		$document->link = JRoute::_(WeblinksHelperRoute::getCategoryRoute($app->input->getInt('id')));
+		$document->link = JRoute::_(trainingformsHelperRoute::getCategoryRoute($app->input->getInt('id')));
 
 		$app->input->set('limit', $app->getCfg('feed_limit'));
 		$siteEmail = $app->getCfg('mailfrom');
@@ -46,7 +46,7 @@ class WeblinksViewCategory extends JViewLegacy
 			$title = html_entity_decode($title, ENT_COMPAT, 'UTF-8');
 
 			// url link to article
-			$link = JRoute::_(WeblinksHelperRoute::getWeblinkRoute($item->id, $item->catid));
+			$link = JRoute::_(trainingformsHelperRoute::gettrainingformRoute($item->id, $item->catid));
 
 			// strip html from feed item description text
 			$description = $item->description;

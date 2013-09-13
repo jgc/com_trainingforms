@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.1" method="upgrade">
-	<name>com_weblinks</name>
+	<name>com_trainingforms</name>
 	<author>Joomla! Project</author>
 	<creationDate>April 2006</creationDate>
 	<copyright>(C) 2005 - 2013 Open Source Matters. All rights reserved.
@@ -10,7 +10,7 @@
 	<authorEmail>admin@joomla.org</authorEmail>
 	<authorUrl>www.joomla.org</authorUrl>
 	<version>3.0.0</version>
-	<description>COM_WEBLINKS_XML_DESCRIPTION</description>
+	<description>COM_trainingformS_XML_DESCRIPTION</description>
 
 	<install> <!-- Runs on install -->
     	<sql>
@@ -25,7 +25,7 @@
 
 	<files folder="site">
 		<filename>index.html</filename>
-		<filename>weblinks.php</filename>
+		<filename>trainingforms.php</filename>
 		<filename>controller.php</filename>
 		<filename>router.php</filename>
 		<filename>metadata.xml</filename>
@@ -35,26 +35,26 @@
 		<folder>helpers</folder>
 	</files>
 	<languages folder="site">
-		<language tag="en-GB">language/en-GB.com_weblinks.ini</language>
+		<language tag="en-GB">language/en-GB.com_trainingforms.ini</language>
 	</languages>
 	<administration>
-		<menu img="class:weblinks">com_weblinks</menu>
+		<menu img="class:trainingforms">com_trainingforms</menu>
 		<submenu>
 			<!--
 				Note that all & must be escaped to &amp; for the file to be valid
 				XML and be parsed by the installer
 			-->
-			<menu link="option=com_weblinks" view="links" img="class:weblinks"
-				alt="Weblinks/Links">com_weblinks_links</menu>
-			<menu link="option=com_categories&amp;extension=com_weblinks"
-				view="categories" img="class:weblinks-cat" alt="Weblinks/Categories">com_weblinks_categories</menu>
+			<menu link="option=com_trainingforms" view="links" img="class:trainingforms"
+				alt="trainingforms/Links">com_trainingforms_links</menu>
+			<menu link="option=com_categories&amp;extension=com_trainingforms"
+				view="categories" img="class:trainingforms-cat" alt="trainingforms/Categories">com_trainingforms_categories</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
-			<filename>weblinks.php</filename>
+			<filename>trainingforms.php</filename>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>models</folder>
@@ -63,8 +63,8 @@
 			<folder>views</folder>
 		</files>
 		<languages folder="admin">
-			<language tag="en-GB">language/en-GB.com_weblinks.ini</language>
-			<language tag="en-GB">language/en-GB.com_weblinks.sys.ini</language>
+			<language tag="en-GB">language/en-GB.com_trainingforms.ini</language>
+			<language tag="en-GB">language/en-GB.com_trainingforms.sys.ini</language>
 		</languages>
 	</administration>
 </extension>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML View class for the WebLinks component
+ * HTML View class for the trainingforms component
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksViewWeblink extends JViewLegacy
+class trainingformsViewtrainingform extends JViewLegacy
 {
 	protected $state;
 
@@ -41,7 +41,7 @@ class WeblinksViewWeblink extends JViewLegacy
 		else
 		{
 			//TODO create proper error handling
-			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_WEBLINKS_ERROR_WEBLINK_NOT_FOUND'), 'notice');
+			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'), 'notice');
 		}
 	}
 }

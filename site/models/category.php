@@ -1,8 +1,8 @@
 <?php
 /**
- * /home/bloggund/public_html/bgd/components/com_weblinks/models/category.php
+ * /home/bloggund/public_html/bgd/components/com_trainingforms/models/category.php
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -11,13 +11,13 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks Component Weblink Model
+ * trainingforms Component trainingform Model
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksModelCategory extends JModelList
+class trainingformsModelCategory extends JModelList
 {
 	/**
 	 * Category items data
@@ -67,7 +67,7 @@ class WeblinksModelCategory extends JModelList
 	protected $_category = null;
 
 	/**
-	 * The list of other weblink categories.
+	 * The list of other trainingform categories.
 	 *
 	 * @access    protected
 	 * @var        array
@@ -95,7 +95,7 @@ class WeblinksModelCategory extends JModelList
 			}
 			// Get the tags
 			$item->tags = new JHelperTags;
-			$item->tags->getItemTags('com_weblinks.weblink', $item->id);
+			$item->tags->getItemTags('com_trainingforms.trainingform', $item->id);
 		}
 
 		return $items;
@@ -120,7 +120,7 @@ class WeblinksModelCategory extends JModelList
 
 		// Select required fields from the categories.
 		$query->select($this->getState('list.select', 'a.*'))
-			->from($db->quoteName('#__weblinks') . ' AS a')
+			->from($db->quoteName('#__trainingforms') . ' AS a')
 			
 			// JC Edit
 			//->where('a.access IN (' . $groups . ')');
@@ -198,7 +198,7 @@ class WeblinksModelCategory extends JModelList
 	protected function populateState($ordering = null, $direction = null)
 	{
 		$app = JFactory::getApplication();
-		$params = JComponentHelper::getParams('com_weblinks');
+		$params = JComponentHelper::getParams('com_trainingforms');
 
 		// List state information
 		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'uint');
@@ -228,7 +228,7 @@ class WeblinksModelCategory extends JModelList
 		$this->setState('category.id', $id);
 
 		$user = JFactory::getUser();
-		if ((!$user->authorise('core.edit.state', 'com_weblinks')) && (!$user->authorise('core.edit', 'com_weblinks')))
+		if ((!$user->authorise('core.edit.state', 'com_trainingforms')) && (!$user->authorise('core.edit', 'com_trainingforms')))
 		{
 			// limit to published for people who can't edit or edit.state.
 			$this->setState('filter.state', 1);
@@ -267,7 +267,7 @@ class WeblinksModelCategory extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_num_links_cat', 1) || $params->get('show_empty_categories', 0);
-			$categories = JCategories::getInstance('Weblinks', $options);
+			$categories = JCategories::getInstance('trainingforms', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 			if (is_object($this->_item))
 			{

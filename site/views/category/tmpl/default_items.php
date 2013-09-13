@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -17,10 +17,10 @@ JHtml::_('behavior.framework');
 $params = &$this->item->params;
 // Get the user object.
 $user = JFactory::getUser();
-// Check if user is allowed to add/edit based on weblinks permissinos.
-$canEdit = $user->authorise('core.edit', 'com_weblinks.category.'.$this->category->id);
-$canCreate = $user->authorise('core.create', 'com_weblinks');
-$canEditState = $user->authorise('core.edit.state', 'com_weblinks');
+// Check if user is allowed to add/edit based on trainingforms permissinos.
+$canEdit = $user->authorise('core.edit', 'com_trainingforms.category.'.$this->category->id);
+$canCreate = $user->authorise('core.create', 'com_trainingforms');
+$canEditState = $user->authorise('core.edit.state', 'com_trainingforms');
 
 $n = count($this->items);
 $listOrder	= $this->escape($this->state->get('list.ordering'));
@@ -28,7 +28,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 
 <?php if (empty($this->items)) : ?>
-	<p> <?php echo JText::_('COM_WEBLINKS_NO_WEBLINKS'); ?></p>
+	<p> <?php echo JText::_('COM_trainingformS_NO_trainingformS'); ?></p>
 <?php else : ?>
 
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
@@ -36,8 +36,8 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	<fieldset class="filters btn-toolbar">
 		<?php if ($this->params->get('filter_field') != 'hide') :?>
 			<div class="btn-group">
-				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_WEBLINKS_FILTER_LABEL').'&#160;'; ?></label>
-				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_WEBLINKS_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_WEBLINKS_FILTER_SEARCH_DESC'); ?>" />
+				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_trainingformS_FILTER_LABEL').'&#160;'; ?></label>
+				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_trainingformS_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_trainingformS_FILTER_SEARCH_DESC'); ?>" />
 			</div>
 		<?php endif; ?>
 
@@ -74,12 +74,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 					<div class="list-title">
 						<?php if ($this->params->get('icons', 1) == 0) : ?>
-							 <?php echo JText::_('COM_WEBLINKS_LINK'); ?>
+							 <?php echo JText::_('COM_trainingformS_LINK'); ?>
 						<?php elseif ($this->params->get('icons', 1) == 1) : ?>
 							<?php if (!$this->params->get('link_icons')) : ?>
-								<?php echo JHtml::_('image', 'system/weblink.png', JText::_('COM_WEBLINKS_LINK'), null, true); ?>
+								<?php echo JHtml::_('image', 'system/trainingform.png', JText::_('COM_trainingformS_LINK'), null, true); ?>
 							<?php else: ?>
-								<?php echo '<img src="'.$this->params->get('link_icons').'" alt="'.JText::_('COM_WEBLINKS_LINK').'" />'; ?>
+								<?php echo '<img src="'.$this->params->get('link_icons').'" alt="'.JText::_('COM_trainingformS_LINK').'" />'; ?>
 							<?php endif; ?>
 						<?php endif; ?>
 						<?php
@@ -126,7 +126,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 							}
 						?>
 						</div>
-						<?php $tagsData = $item->tags->getItemTags('com_weblinks.weblink', $item->id); ?>
+						<?php $tagsData = $item->tags->getItemTags('com_trainingforms.trainingform', $item->id); ?>
 						<?php if ($this->params->get('show_tags', 1)) : ?>
 							<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
 							<?php echo $this->item->tagLayout->render($tagsData); ?>
@@ -159,7 +159,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<?php endforeach; ?>
 		</ul>
 
-		<?php // Code to add a link to submit a weblink. ?>
+		<?php // Code to add a link to submit a trainingform. ?>
 		<?php /* if ($canCreate) : // TODO This is not working due to some problem in the router, I think. Ref issue #23685 ?>
 			<?php echo JHtml::_('icon.create', $item, $item->params); ?>
 		<?php  endif; */ ?>

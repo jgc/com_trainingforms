@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML Article View class for the Weblinks component
+ * HTML Article View class for the trainingforms component
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksViewForm extends JViewLegacy
+class trainingformsViewForm extends JViewLegacy
 {
 	protected $form;
 
@@ -38,11 +38,11 @@ class WeblinksViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 		{
-			$authorised = ($user->authorise('core.create', 'com_weblinks') || (count($user->getAuthorisedCategories('com_weblinks', 'core.create'))));
+			$authorised = ($user->authorise('core.create', 'com_trainingforms') || (count($user->getAuthorisedCategories('com_trainingforms', 'core.create'))));
 		}
 		else
 		{
-			$authorised = $user->authorise('core.edit', 'com_weblinks.category.'.$this->item->catid);
+			$authorised = $user->authorise('core.edit', 'com_trainingforms.category.'.$this->item->catid);
 
 		}
 
@@ -92,11 +92,11 @@ class WeblinksViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 	{
-		$head = JText::_('COM_WEBLINKS_FORM_SUBMIT_WEBLINK');
+		$head = JText::_('COM_trainingformS_FORM_SUBMIT_trainingform');
 		}
 		else
 		{
-		$head = JText::_('COM_WEBLINKS_FORM_EDIT_WEBLINK');
+		$head = JText::_('COM_trainingformS_FORM_EDIT_trainingform');
 		}
 
 		if ($menu)

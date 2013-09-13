@@ -2,7 +2,7 @@
 <form>
 	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
 		<field name="id" type="hidden"
-			label="WEBLINK_ID_LABEL"
+			label="trainingform_ID_LABEL"
 			readonly="true"
 			required="true"
 			size="10"
@@ -10,14 +10,14 @@
 		/>
 
 		<field name="title" type="text"
-			description="COM_WEBLINKS_FIELD_TITLE_DESC"
+			description="COM_trainingformS_FIELD_TITLE_DESC"
 			label="JGLOBAL_TITLE"
 			required="true"
 			size="30"
 		/>
 
 		<field name="alias" type="text"
-			description="COM_WEBLINKS_FIELD_ALIAS_DESC"
+			description="COM_trainingformS_FIELD_ALIAS_DESC"
 			label="JFIELD_ALIAS_LABEL"
 			size="45"
 		/>
@@ -25,10 +25,10 @@
 		<field name="description" type="editor"
 			buttons="true"
 			hide="pagebreak,readmore"
-			description="COM_WEBLINKS_FIELD_DESCRIPTION_DESC"
+			description="COM_trainingformS_FIELD_DESCRIPTION_DESC"
 			filter="safehtml"
 			label="JGLOBAL_DESCRIPTION"
-			asset_id="com_weblinks"
+			asset_id="com_trainingforms"
 		/>
 
 		<field name="state" type="list"
@@ -42,15 +42,15 @@
 		</field>
 
 		<field name="catid" type="categoryedit"
-			description="COM_WEBLINKS_FIELD_CATEGORY_DESC"
-			extension="com_weblinks"
+			description="COM_trainingformS_FIELD_CATEGORY_DESC"
+			extension="com_trainingforms"
 			label="JCATEGORY"
 			required="true"
 		/>
 
 		<field name="url" type="url"
-			description="COM_WEBLINKS_FIELD_URL_DESC"
-			label="COM_WEBLINKS_FIELD_URL_LABEL"
+			description="COM_trainingformS_FIELD_URL_DESC"
+			label="COM_trainingformS_FIELD_URL_LABEL"
 			required="true"
 			size="45"
 		/>

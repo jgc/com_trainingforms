@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,20 +10,20 @@
 defined('_JEXEC') or die;
 
 /**
- * Build the route for the com_weblinks component
+ * Build the route for the com_trainingforms component
  *
  * @return  array  An array of URL arguments
  *
  * @return  array  The URL arguments to use to assemble the subsequent URL.
  */
-function WeblinksBuildRoute(&$query)
+function trainingformsBuildRoute(&$query)
 {
 	$segments = array();
 
 	// get a menu item based on Itemid or currently active
 	$app = JFactory::getApplication();
 	$menu = $app->getMenu();
-	$params = JComponentHelper::getParams('com_weblinks');
+	$params = JComponentHelper::getParams('com_trainingforms');
 	$advanced = $params->get('sef_advanced_link', 0);
 
 	// we need a menu item.  Either the one specified in the query, or the current active one if none specified
@@ -43,7 +43,7 @@ function WeblinksBuildRoute(&$query)
 	{
 		$view = $query['view'];
 
-		if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_weblinks')
+		if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_trainingforms')
 		{
 			$segments[] = $query['view'];
 		}
@@ -55,7 +55,7 @@ function WeblinksBuildRoute(&$query)
 		}
 	}
 
-	// are we dealing with an weblink that is attached to a menu item?
+	// are we dealing with an trainingform that is attached to a menu item?
 	if (isset($query['view']) && ($mView == $query['view']) and (isset($query['id'])) and ($mId == (int) $query['id']))
 	{
 		unset($query['view']);
@@ -65,11 +65,11 @@ function WeblinksBuildRoute(&$query)
 		return $segments;
 	}
 
-	if (isset($view) and ($view == 'category' or $view == 'weblink'))
+	if (isset($view) and ($view == 'category' or $view == 'trainingform'))
 	{
 		if ($mId != (int) $query['id'] || $mView != $view)
 		{
-			if ($view == 'weblink' && isset($query['catid']))
+			if ($view == 'trainingform' && isset($query['catid']))
 			{
 				$catid = $query['catid'];
 			}
@@ -79,7 +79,7 @@ function WeblinksBuildRoute(&$query)
 			}
 
 			$menuCatid = $mId;
-			$categories = JCategories::getInstance('Weblinks');
+			$categories = JCategories::getInstance('trainingforms');
 			$category = $categories->get($catid);
 
 			if ($category)
@@ -106,7 +106,7 @@ function WeblinksBuildRoute(&$query)
 				$segments = array_merge($segments, array_reverse($array));
 			}
 
-			if ($view == 'weblink')
+			if ($view == 'trainingform')
 			{
 				if ($advanced)
 				{
@@ -153,7 +153,7 @@ function WeblinksBuildRoute(&$query)
  *
  * @return  array  The URL attributes to be used by the application.
  */
-function WeblinksParseRoute($segments)
+function trainingformsParseRoute($segments)
 {
 	$vars = array();
 
@@ -161,13 +161,13 @@ function WeblinksParseRoute($segments)
 	$app = JFactory::getApplication();
 	$menu = $app->getMenu();
 	$item = $menu->getActive();
-	$params = JComponentHelper::getParams('com_weblinks');
+	$params = JComponentHelper::getParams('com_trainingforms');
 	$advanced = $params->get('sef_advanced_link', 0);
 
 	// Count route segments
 	$count = count($segments);
 
-	// Standard routing for weblinks.
+	// Standard routing for trainingforms.
 	if (!isset($item))
 	{
 		$vars['view'] = $segments[0];
@@ -178,7 +178,7 @@ function WeblinksParseRoute($segments)
 	// From the categories view, we can only jump to a category.
 	$id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
 
-	$category = JCategories::getInstance('Weblinks')->get($id);
+	$category = JCategories::getInstance('trainingforms')->get($id);
 
 	$categories = $category->getChildren();
 	$found = 0;
@@ -205,7 +205,7 @@ function WeblinksParseRoute($segments)
 				$db = JFactory::getDbo();
 				$query = $db->getQuery(true)
 					->select($db->quoteName('id'))
-					->from('#__weblinks')
+					->from('#__trainingforms')
 					->where($db->quoteName('catid') . ' = ' . (int) $vars['catid'])
 					->where($db->quoteName('alias') . ' = ' . $db->quote($db->quote(str_replace(':', '-', $segment))));
 				$db->setQuery($query);
@@ -217,7 +217,7 @@ function WeblinksParseRoute($segments)
 			}
 
 			$vars['id'] = $id;
-			$vars['view'] = 'weblink';
+			$vars['view'] = 'trainingform';
 
 			break;
 		}

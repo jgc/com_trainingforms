@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,19 +10,19 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks model.
+ * Trainingforms model.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksModelWeblink extends JModelAdmin
+class TrainingformsModelTrainingform extends JModelAdmin
 {
 	/**
 	 * @var		string	The prefix to use with controller messages.
 	 * @since   1.6
 	 */
-	protected $text_prefix = 'COM_WEBLINKS';
+	protected $text_prefix = 'COM_trainingformS';
 
 	/**
 	 * Method to test whether a record can be deleted.
@@ -43,7 +43,7 @@ class WeblinksModelWeblink extends JModelAdmin
 
 			if ($record->catid)
 			{
-				return $user->authorise('core.delete', 'com_weblinks.category.'.(int) $record->catid);
+				return $user->authorise('core.delete', 'com_trainingforms.category.'.(int) $record->catid);
 			}
 			else
 			{
@@ -65,7 +65,7 @@ class WeblinksModelWeblink extends JModelAdmin
 
 		if (!empty($record->catid))
 		{
-			return $user->authorise('core.edit.state', 'com_weblinks.category.'.(int) $record->catid);
+			return $user->authorise('core.edit.state', 'com_trainingforms.category.'.(int) $record->catid);
 		}
 		else
 		{
@@ -82,7 +82,7 @@ class WeblinksModelWeblink extends JModelAdmin
 	 * @return  JTable	A database object
 	 * @since   1.6
 	 */
-	public function getTable($type = 'Weblink', $prefix = 'WeblinksTable', $config = array())
+	public function getTable($type = 'Trainingform', $prefix = 'TrainingformsTable', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -98,14 +98,14 @@ class WeblinksModelWeblink extends JModelAdmin
 	public function getForm($data = array(), $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm('com_weblinks.weblink', 'weblink', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_trainingforms.trainingform', 'trainingform', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form))
 		{
 			return false;
 		}
 
 		// Determine correct permissions to check.
-		if ($this->getState('weblink.id'))
+		if ($this->getState('trainingform.id'))
 		{
 			// Existing record. Can only edit in selected categories.
 			$form->setFieldAttribute('catid', 'action', 'core.edit');
@@ -145,21 +145,21 @@ class WeblinksModelWeblink extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_weblinks.edit.weblink.data', array());
+		$data = JFactory::getApplication()->getUserState('com_trainingforms.edit.trainingform.data', array());
 
 		if (empty($data))
 		{
 			$data = $this->getItem();
 
 			// Prime some default values.
-			if ($this->getState('weblink.id') == 0)
+			if ($this->getState('trainingform.id') == 0)
 			{
 				$app = JFactory::getApplication();
-				$data->set('catid', $app->input->get('catid', $app->getUserState('com_weblinks.weblinks.filter.category_id'), 'int'));
+				$data->set('catid', $app->input->get('catid', $app->getUserState('com_trainingforms.trainingforms.filter.category_id'), 'int'));
 			}
 		}
 
-		$this->preprocessData('com_weblinks.weblink', $data);
+		$this->preprocessData('com_trainingforms.trainingform', $data);
 
 		return $data;
 	}
@@ -189,7 +189,7 @@ class WeblinksModelWeblink extends JModelAdmin
 			if (!empty($item->id))
 			{
 				$item->tags = new JHelperTags;
-				$item->tags->getTagIds($item->id, 'com_weblinks.weblink');
+				$item->tags->getTagIds($item->id, 'com_trainingforms.trainingform');
 				$item->metadata['tags'] = $item->tags;
 			}
 		}
@@ -223,7 +223,7 @@ class WeblinksModelWeblink extends JModelAdmin
 			if (empty($table->ordering))
 			{
 				$db = JFactory::getDbo();
-				$db->setQuery('SELECT MAX(ordering) FROM #__weblinks');
+				$db->setQuery('SELECT MAX(ordering) FROM #__trainingforms');
 				$max = $db->loadResult();
 
 				$table->ordering = $max + 1;

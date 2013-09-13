@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,13 +12,13 @@ defined('_JEXEC') or die;
 JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 
 /**
- * Weblinks Component Model for a Weblink record
+ * trainingforms Component Model for a trainingform record
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksModelWeblink extends JModelItem
+class trainingformsModeltrainingform extends JModelItem
 {
 	/**
 	 * Model context string.
@@ -26,7 +26,7 @@ class WeblinksModelWeblink extends JModelItem
 	 * @access	protected
 	 * @var		string
 	 */
-	protected $_context = 'com_weblinks.weblink';
+	protected $_context = 'com_trainingforms.trainingform';
 
 	/**
 	 * Method to auto-populate the model state.
@@ -42,7 +42,7 @@ class WeblinksModelWeblink extends JModelItem
 
 		// Load the object state.
 		$id	= $app->input->getInt('id');
-		$this->setState('weblink.id', $id);
+		$this->setState('trainingform.id', $id);
 
 		// Load the parameters.
 		$this->setState('params', $params);
@@ -63,11 +63,11 @@ class WeblinksModelWeblink extends JModelItem
 
 			if (empty($id))
 			{
-				$id = $this->getState('weblink.id');
+				$id = $this->getState('trainingform.id');
 			}
 
 			// Get a level row instance.
-			$table = JTable::getInstance('Weblink', 'WeblinksTable');
+			$table = JTable::getInstance('trainingform', 'trainingformsTable');
 
 			// Attempt to load the row.
 			if ($table->load($id))
@@ -103,15 +103,15 @@ class WeblinksModelWeblink extends JModelItem
 	 * @return	JTable	A database object
 	 * @since	1.6
 	 */
-	public function getTable($type = 'Weblink', $prefix = 'WeblinksTable', $config = array())
+	public function getTable($type = 'trainingform', $prefix = 'trainingformsTable', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
 
 	/**
-	 * Method to increment the hit counter for the weblink
+	 * Method to increment the hit counter for the trainingform
 	 *
-	 * @param   integer  $id  Optional ID of the weblink.
+	 * @param   integer  $id  Optional ID of the trainingform.
 	 *
 	 * @return  boolean  True on success
 	 */
@@ -119,10 +119,10 @@ class WeblinksModelWeblink extends JModelItem
 	{
 		if (empty($id))
 		{
-			$id = $this->getState('weblink.id');
+			$id = $this->getState('trainingform.id');
 		}
 
-		$weblink = $this->getTable('Weblink', 'WeblinksTable');
-		return $weblink->hit($id);
+		$trainingform = $this->getTable('trainingform', 'trainingformsTable');
+		return $trainingform->hit($id);
 	}
 }

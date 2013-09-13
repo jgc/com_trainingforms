@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -19,12 +19,12 @@ $user		= JFactory::getUser();
 $userId		= $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
-$canOrder	= $user->authorise('core.edit.state', 'com_weblinks.category');
+$canOrder	= $user->authorise('core.edit.state', 'com_trainingforms.category');
 $saveOrder	= $listOrder == 'a.ordering';
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_weblinks&task=weblinks.saveOrderAjax&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'weblinkList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+	$saveOrderingUrl = 'index.php?option=com_trainingforms&task=trainingforms.saveOrderAjax&tmpl=component';
+	JHtml::_('sortablelist.sortable', 'trainingformList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 $sortFields = $this->getSortFields();
 ?>
@@ -45,7 +45,7 @@ $sortFields = $this->getSortFields();
 		Joomla.tableOrdering(order, dirn, '');
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_weblinks&view=weblinks'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_trainingforms&view=trainingforms'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -56,8 +56,8 @@ $sortFields = $this->getSortFields();
 <?php endif;?>
 		<div id="filter-bar" class="btn-toolbar">
 			<div class="filter-search btn-group pull-left">
-				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_WEBLINKS_SEARCH_IN_TITLE');?></label>
-				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_WEBLINKS_SEARCH_IN_TITLE'); ?>" />
+				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_trainingformS_SEARCH_IN_TITLE');?></label>
+				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_trainingformS_SEARCH_IN_TITLE'); ?>" />
 			</div>
 			<div class="btn-group pull-left">
 				<button type="submit" class="btn hasTooltip" title="<?php echo JHtml::tooltipText('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
@@ -84,7 +84,7 @@ $sortFields = $this->getSortFields();
 			</div>
 		</div>
 		<div class="clearfix"> </div>
-		<table class="table table-striped" id="weblinkList">
+		<table class="table table-striped" id="trainingformList">
 			<thead>
 				<tr>
 					<th width="1%" class="nowrap center hidden-phone">
@@ -123,11 +123,11 @@ $sortFields = $this->getSortFields();
 			<tbody>
 			<?php foreach ($this->items as $i => $item) :
 				$ordering   = ($listOrder == 'a.ordering');
-				$item->cat_link	= JRoute::_('index.php?option=com_categories&extension=com_weblinks&task=edit&type=other&cid[]='. $item->catid);
-				$canCreate  = $user->authorise('core.create',     'com_weblinks.category.' . $item->catid);
-				$canEdit    = $user->authorise('core.edit',       'com_weblinks.category.' . $item->catid);
+				$item->cat_link	= JRoute::_('index.php?option=com_categories&extension=com_trainingforms&task=edit&type=other&cid[]='. $item->catid);
+				$canCreate  = $user->authorise('core.create',     'com_trainingforms.category.' . $item->catid);
+				$canEdit    = $user->authorise('core.edit',       'com_trainingforms.category.' . $item->catid);
 				$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $user->get('id') || $item->checked_out == 0;
-				$canChange  = $user->authorise('core.edit.state', 'com_weblinks.category.' . $item->catid) && $canCheckin;
+				$canChange  = $user->authorise('core.edit.state', 'com_trainingforms.category.' . $item->catid) && $canCheckin;
 				?>
 				<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
 					<td class="order nowrap center hidden-phone">
@@ -153,14 +153,14 @@ $sortFields = $this->getSortFields();
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 					</td>
 					<td class="center">
-						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'weblinks.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'trainingforms.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
 					</td>
 					<td class="nowrap has-context">
 						<?php if ($item->checked_out) : ?>
-							<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'weblinks.', $canCheckin); ?>
+							<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'trainingforms.', $canCheckin); ?>
 						<?php endif; ?>
 						<?php if ($canEdit) : ?>
-							<a href="<?php echo JRoute::_('index.php?option=com_weblinks&task=weblink.edit&id='.(int) $item->id); ?>">
+							<a href="<?php echo JRoute::_('index.php?option=com_trainingforms&task=trainingform.edit&id='.(int) $item->id); ?>">
 								<?php echo $this->escape($item->title); ?></a>
 						<?php else : ?>
 								<?php echo $this->escape($item->title); ?>

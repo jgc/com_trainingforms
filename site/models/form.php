@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,16 +9,16 @@
 
 defined('_JEXEC') or die;
 
-require_once JPATH_COMPONENT_ADMINISTRATOR.'/models/weblink.php';
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/models/trainingform.php';
 
 /**
- * Weblinks model.
+ * trainingforms model.
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.6
  */
-class WeblinksModelForm extends WeblinksModelWeblink
+class trainingformsModelForm extends trainingformsModeltrainingform
 {
 	/**
 	 * Get the return URL.
@@ -44,12 +44,12 @@ class WeblinksModelForm extends WeblinksModelWeblink
 
 		// Load state from the request.
 		$pk = $app->input->getInt('w_id');
-		$this->setState('weblink.id', $pk);
+		$this->setState('trainingform.id', $pk);
 		// Add compatibility variable for default naming conventions.
 		$this->setState('form.id', $pk);
 
 		$categoryId	= $app->input->getInt('catid');
-		$this->setState('weblink.catid', $categoryId);
+		$this->setState('trainingform.catid', $categoryId);
 
 		$return = $app->input->get('return', null, 'base64');
 

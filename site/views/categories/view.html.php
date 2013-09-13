@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -13,10 +13,10 @@ defined('_JEXEC') or die;
  * Content categories view.
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksViewCategories extends JViewLegacy
+class trainingformsViewCategories extends JViewLegacy
 {
 	protected $state = null;
 
@@ -87,7 +87,7 @@ class WeblinksViewCategories extends JViewLegacy
 		}
 		else
 		{
-			$this->params->def('page_heading', JText::_('COM_WEBLINKS_DEFAULT_PAGE_TITLE'));
+			$this->params->def('page_heading', JText::_('COM_trainingformS_DEFAULT_PAGE_TITLE'));
 		}
 		$title = $this->params->get('page_title', '');
 		if (empty($title))

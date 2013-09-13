@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,19 +10,19 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks list controller class.
+ * Trainingforms list controller class.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.6
  */
-class WeblinksControllerWeblinks extends JControllerAdmin
+class TrainingformsControllerTrainingforms extends JControllerAdmin
 {
 	/**
 	 * Proxy for getModel.
 	 * @since   1.6
 	 */
-	public function getModel($name = 'Weblink', $prefix = 'WeblinksModel', $config = array('ignore_request' => true))
+	public function getModel($name = 'Trainingform', $prefix = 'TrainingformsModel', $config = array('ignore_request' => true))
 	{
 		$model = parent::getModel($name, $prefix, $config);
 		return $model;

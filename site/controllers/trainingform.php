@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -11,10 +11,10 @@ defined('_JEXEC') or die;
 
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksControllerWeblink extends JControllerForm
+class trainingformsControllertrainingform extends JControllerForm
 {
 	/**
 	 * @since   1.6
@@ -267,7 +267,7 @@ class WeblinksControllerWeblink extends JControllerForm
 	}
 
 	/**
-	 * Go to a weblink
+	 * Go to a trainingform
 	 *
 	 * @return  void
 	 * @since   1.6
@@ -278,7 +278,7 @@ class WeblinksControllerWeblink extends JControllerForm
 		$id = $this->input->getInt('id');
 
 		// Get the model, requiring published items
-		$modelLink	= $this->getModel('Weblink', '', array('ignore_request' => true));
+		$modelLink	= $this->getModel('trainingform', '', array('ignore_request' => true));
 		$modelLink->setState('filter.published', 1);
 
 		// Get the item
@@ -287,7 +287,7 @@ class WeblinksControllerWeblink extends JControllerForm
 		// Make sure the item was found.
 		if (empty($link))
 		{
-			return JError::raiseWarning(404, JText::_('COM_WEBLINKS_ERROR_WEBLINK_NOT_FOUND'));
+			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'));
 		}
 
 		// Check whether item access level allows access.
@@ -300,7 +300,7 @@ class WeblinksControllerWeblink extends JControllerForm
 		}
 
 		// Check whether category access level allows access.
-		$modelCat = $this->getModel('Category', 'WeblinksModel', array('ignore_request' => true));
+		$modelCat = $this->getModel('Category', 'trainingformsModel', array('ignore_request' => true));
 		$modelCat->setState('filter.published', 1);
 
 		// Get the category
@@ -309,7 +309,7 @@ class WeblinksControllerWeblink extends JControllerForm
 		// Make sure the category was found.
 		if (empty($category))
 		{
-			return JError::raiseWarning(404, JText::_('COM_WEBLINKS_ERROR_WEBLINK_NOT_FOUND'));
+			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'));
 		}
 
 		// Check whether item access level allows access.
@@ -327,7 +327,7 @@ class WeblinksControllerWeblink extends JControllerForm
 		}
 		else
 		{
-			return JError::raiseWarning(404, JText::_('COM_WEBLINKS_ERROR_WEBLINK_URL_INVALID'));
+			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_URL_INVALID'));
 		}
 	}
 }

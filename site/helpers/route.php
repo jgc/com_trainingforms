@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,32 +10,32 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks Component Route Helper
+ * trainingforms Component Route Helper
  *
  * @static
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-abstract class WeblinksHelperRoute
+abstract class trainingformsHelperRoute
 {
 	protected static $lookup;
 
 	/**
-	 * @param   integer  The route of the weblink
+	 * @param   integer  The route of the trainingform
 	 */
-	public static function getWeblinkRoute($id, $catid, $language = 0)
+	public static function gettrainingformRoute($id, $catid, $language = 0)
 	{
 		$needles = array(
-			'weblink'  => array((int) $id)
+			'trainingform'  => array((int) $id)
 		);
 
 		//Create the link
-		$link = 'index.php?option=com_weblinks&view=weblink&id='. $id;
+		$link = 'index.php?option=com_trainingforms&view=trainingform&id='. $id;
 
 		if ($catid > 1)
 		{
-			$categories = JCategories::getInstance('Weblinks');
+			$categories = JCategories::getInstance('trainingforms');
 			$category = $categories->get($catid);
 
 			if ($category)
@@ -79,7 +79,7 @@ abstract class WeblinksHelperRoute
 	}
 
 	/**
-	 * @param   integer  $id		The id of the weblink.
+	 * @param   integer  $id		The id of the trainingform.
 	 * @param   string	$return	The return page variable.
 	 */
 	public static function getFormRoute($id, $return = null)
@@ -87,11 +87,11 @@ abstract class WeblinksHelperRoute
 		// Create the link.
 		if ($id)
 		{
-			$link = 'index.php?option=com_weblinks&task=weblink.edit&w_id='. $id;
+			$link = 'index.php?option=com_trainingforms&task=trainingform.edit&w_id='. $id;
 		}
 		else
 		{
-			$link = 'index.php?option=com_weblinks&task=weblink.add&w_id=0';
+			$link = 'index.php?option=com_trainingforms&task=trainingform.add&w_id=0';
 		}
 
 		if ($return)
@@ -112,7 +112,7 @@ abstract class WeblinksHelperRoute
 		else
 		{
 			$id = (int) $catid;
-			$category = JCategories::getInstance('Weblinks')->get($id);
+			$category = JCategories::getInstance('trainingforms')->get($id);
 		}
 
 		if ($id < 1)
@@ -122,7 +122,7 @@ abstract class WeblinksHelperRoute
 		else
 		{
 			//Create the link
-			$link = 'index.php?option=com_weblinks&view=category&id='.$id;
+			$link = 'index.php?option=com_trainingforms&view=category&id='.$id;
 			$needles = array(
 				'category' => array($id)
 			);
@@ -186,7 +186,7 @@ abstract class WeblinksHelperRoute
 		{
 			self::$lookup[$language] = array();
 
-			$component	= JComponentHelper::getComponent('com_weblinks');
+			$component	= JComponentHelper::getComponent('com_trainingforms');
 
 			$attributes = array('component_id');
 			$values = array($component->id);

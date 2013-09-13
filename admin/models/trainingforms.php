@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * Methods supporting a list of weblink records.
+ * Methods supporting a list of trainingform records.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.6
  */
-class WeblinksModelWeblinks extends JModelList
+class TrainingformsModelTrainingforms extends JModelList
 {
 	/**
 	 * Constructor.
@@ -82,7 +82,7 @@ class WeblinksModelWeblinks extends JModelList
 		$this->setState('filter.tag', $tag);
 
 		// Load the parameters.
-		$params = JComponentHelper::getParams('com_weblinks');
+		$params = JComponentHelper::getParams('com_trainingforms');
 		$this->setState('params', $params);
 
 		// List state information.
@@ -135,7 +135,7 @@ class WeblinksModelWeblinks extends JModelList
 					'a.language, a.publish_up, a.publish_down'
 			)
 		);
-		$query->from($db->quoteName('#__weblinks') . ' AS a');
+		$query->from($db->quoteName('#__trainingforms') . ' AS a');
 
 		// Join over the language
 		$query->select('l.title AS language_title')
@@ -213,7 +213,7 @@ class WeblinksModelWeblinks extends JModelList
 				->join(
 					'LEFT', $db->quoteName('#__contentitem_tag_map', 'tagmap')
 					. ' ON ' . $db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
-					. ' AND ' . $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_weblinks.weblink')
+					. ' AND ' . $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_trainingforms.trainingform')
 				);
 		}
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks helper.
+ * Trainingforms helper.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.6
  */
-class WeblinksHelper
+class TrainingformsHelper
 {
 	/**
 	 * Configure the Linkbar.
@@ -24,23 +24,23 @@ class WeblinksHelper
 	 * @param   string	The name of the active view.
 	 * @since   1.6
 	 */
-	public static function addSubmenu($vName = 'weblinks')
+	public static function addSubmenu($vName = 'trainingforms')
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_WEBLINKS_SUBMENU_WEBLINKS'),
-			'index.php?option=com_weblinks&view=weblinks',
-			$vName == 'weblinks'
+			JText::_('COM_trainingformS_SUBMENU_trainingformS'),
+			'index.php?option=com_trainingforms&view=trainingforms',
+			$vName == 'trainingforms'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('COM_WEBLINKS_SUBMENU_CATEGORIES'),
-			'index.php?option=com_categories&extension=com_weblinks',
+			JText::_('COM_trainingformS_SUBMENU_CATEGORIES'),
+			'index.php?option=com_categories&extension=com_trainingforms',
 			$vName == 'categories'
 		);
 		if ($vName == 'categories')
 		{
 			JToolbarHelper::title(
-				JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_weblinks')),
-				'weblinks-categories');
+				JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_trainingforms')),
+				'trainingforms-categories');
 		}
 	}
 
@@ -58,16 +58,16 @@ class WeblinksHelper
 
 		if (empty($categoryId))
 		{
-			$assetName = 'com_weblinks';
+			$assetName = 'com_trainingforms';
 			$level = 'component';
 		}
 		else
 		{
-			$assetName = 'com_weblinks.category.'.(int) $categoryId;
+			$assetName = 'com_trainingforms.category.'.(int) $categoryId;
 			$level = 'category';
 		}
 
-		$actions = JAccess::getActions('com_weblinks', $level);
+		$actions = JAccess::getActions('com_trainingforms', $level);
 
 		foreach ($actions as $action)
 		{

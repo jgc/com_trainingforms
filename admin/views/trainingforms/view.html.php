@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * View class for a list of weblinks.
+ * View class for a list of trainingforms.
  *
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksViewWeblinks extends JViewLegacy
+class TrainingformsViewTrainingforms extends JViewLegacy
 {
 	protected $items;
 
@@ -35,7 +35,7 @@ class WeblinksViewWeblinks extends JViewLegacy
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 
-		WeblinksHelper::addSubmenu('weblinks');
+		TrainingformsHelper::addSubmenu('trainingforms');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -56,40 +56,40 @@ class WeblinksViewWeblinks extends JViewLegacy
 	 */
 	protected function addToolbar()
 	{
-		require_once JPATH_COMPONENT.'/helpers/weblinks.php';
+		require_once JPATH_COMPONENT.'/helpers/trainingforms.php';
 
 		$state	= $this->get('State');
-		$canDo	= WeblinksHelper::getActions($state->get('filter.category_id'));
+		$canDo	= TrainingformsHelper::getActions($state->get('filter.category_id'));
 		$user	= JFactory::getUser();
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
 
-		JToolbarHelper::title(JText::_('COM_WEBLINKS_MANAGER_WEBLINKS'), 'weblinks.png');
-		if (count($user->getAuthorisedCategories('com_weblinks', 'core.create')) > 0)
+		JToolbarHelper::title(JText::_('COM_trainingformS_MANAGER_trainingformS'), 'trainingforms.png');
+		if (count($user->getAuthorisedCategories('com_trainingforms', 'core.create')) > 0)
 		{
-			JToolbarHelper::addNew('weblink.add');
+			JToolbarHelper::addNew('trainingform.add');
 		}
 		if ($canDo->get('core.edit'))
 		{
-			JToolbarHelper::editList('weblink.edit');
+			JToolbarHelper::editList('trainingform.edit');
 		}
 		if ($canDo->get('core.edit.state')) {
 
-			JToolbarHelper::publish('weblinks.publish', 'JTOOLBAR_PUBLISH', true);
-			JToolbarHelper::unpublish('weblinks.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolbarHelper::publish('trainingforms.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('trainingforms.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 
-			JToolbarHelper::archiveList('weblinks.archive');
-			JToolbarHelper::checkin('weblinks.checkin');
+			JToolbarHelper::archiveList('trainingforms.archive');
+			JToolbarHelper::checkin('trainingforms.checkin');
 		}
 		if ($state->get('filter.state') == -2 && $canDo->get('core.delete'))
 		{
-			JToolbarHelper::deleteList('', 'weblinks.delete', 'JTOOLBAR_EMPTY_TRASH');
+			JToolbarHelper::deleteList('', 'trainingforms.delete', 'JTOOLBAR_EMPTY_TRASH');
 		} elseif ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::trash('weblinks.trash');
+			JToolbarHelper::trash('trainingforms.trash');
 		}
 		// Add a batch button
-		if ($user->authorise('core.create', 'com_weblinks') && $user->authorise('core.edit', 'com_weblinks') && $user->authorise('core.edit.state', 'com_weblinks'))
+		if ($user->authorise('core.create', 'com_trainingforms') && $user->authorise('core.edit', 'com_trainingforms') && $user->authorise('core.edit.state', 'com_trainingforms'))
 		{
 			JHtml::_('bootstrap.modal', 'collapseModal');
 			$title = JText::_('JTOOLBAR_BATCH');
@@ -102,12 +102,12 @@ class WeblinksViewWeblinks extends JViewLegacy
 		}
 		if ($canDo->get('core.admin'))
 		{
-			JToolbarHelper::preferences('com_weblinks');
+			JToolbarHelper::preferences('com_trainingforms');
 		}
 
-		JToolbarHelper::help('JHELP_COMPONENTS_WEBLINKS_LINKS');
+		JToolbarHelper::help('JHELP_COMPONENTS_trainingformS_LINKS');
 
-		JHtmlSidebar::setAction('index.php?option=com_weblinks&view=weblinks');
+		JHtmlSidebar::setAction('index.php?option=com_trainingforms&view=trainingforms');
 
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_PUBLISHED'),
@@ -118,7 +118,7 @@ class WeblinksViewWeblinks extends JViewLegacy
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_CATEGORY'),
 			'filter_category_id',
-			JHtml::_('select.options', JHtml::_('category.options', 'com_weblinks'), 'value', 'text', $this->state->get('filter.category_id'))
+			JHtml::_('select.options', JHtml::_('category.options', 'com_trainingforms'), 'value', 'text', $this->state->get('filter.category_id'))
 		);
 
 		JHtmlSidebar::addFilter(

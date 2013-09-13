@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<fieldset name="component"
-		label="COM_WEBLINKS_COMPONENT_LABEL"
-		description="COM_WEBLINKS_COMPONENT_DESC"
+		label="COM_trainingformS_COMPONENT_LABEL"
+		description="COM_trainingformS_COMPONENT_DESC"
 	>
 
 		<field name="target" type="list"
 			default="0"
-			description="COM_WEBLINKS_FIELD_TARGET_DESC"
-			label="COM_WEBLINKS_FIELD_TARGET_LABEL"
+			description="COM_trainingformS_FIELD_TARGET_DESC"
+			label="COM_trainingformS_FIELD_TARGET_LABEL"
 		>
 			<option value="0">JBROWSERTARGET_PARENT</option>
 			<option value="1">JBROWSERTARGET_NEW</option>
@@ -19,8 +19,8 @@
 		<field	name="count_clicks" type="radio"
 				class="btn-group"
 				default="1"
-				label="COM_WEBLINKS_FIELD_COUNTCLICKS_LABEL"
-				description="COM_WEBLINKS_FIELD_COUNTCLICKS_DESC">
+				label="COM_trainingformS_FIELD_COUNTCLICKS_LABEL"
+				description="COM_trainingformS_FIELD_COUNTCLICKS_DESC">
 
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
@@ -28,36 +28,36 @@
 
 		<field	name="icons" type="list"
 				default="1"
-				label="COM_WEBLINKS_FIELD_ICON_LABEL"
-				description="COM_WEBLINKS_FIELD_ICON_DESC"
+				label="COM_trainingformS_FIELD_ICON_LABEL"
+				description="COM_trainingformS_FIELD_ICON_DESC"
 				filter="integer">
-				<option value="0">COM_WEBLINKS_FIELD_ICON_OPTION_TEXT</option>
-				<option value="1">COM_WEBLINKS_FIELD_ICON_OPTION_ICON</option>
-				<option value="2">COM_WEBLINKS_FIELD_ICON_OPTION_WEBLINK</option>
+				<option value="0">COM_trainingformS_FIELD_ICON_OPTION_TEXT</option>
+				<option value="1">COM_trainingformS_FIELD_ICON_OPTION_ICON</option>
+				<option value="2">COM_trainingformS_FIELD_ICON_OPTION_trainingform</option>
 		</field>
 
 		<field name="link_icons" type="media"
-			description="COM_WEBLINKS_FIELD_CONFIG_ICON_DESC"
-			label="COM_WEBLINKS_FIELD_CONFIG_ICON_LABEL"
+			description="COM_trainingformS_FIELD_CONFIG_ICON_DESC"
+			label="COM_trainingformS_FIELD_CONFIG_ICON_LABEL"
 		/>
 
 		<field
 			name="float_first"
 			type="list"
-			label="COM_WEBLINKS_FLOAT_LABEL"
-			description="COM_WEBLINKS_FLOAT_DESC">
-				<option value="right">COM_WEBLINKS_RIGHT</option>
-				<option value="left">COM_WEBLINKS_LEFT</option>
-				<option value="none">COM_WEBLINKS_NONE</option>
+			label="COM_trainingformS_FLOAT_LABEL"
+			description="COM_trainingformS_FLOAT_DESC">
+				<option value="right">COM_trainingformS_RIGHT</option>
+				<option value="left">COM_trainingformS_LEFT</option>
+				<option value="none">COM_trainingformS_NONE</option>
 		</field>
 		<field
 			name="float_second"
 			type="list"
-			label="COM_WEBLINKS_FLOAT_LABEL"
-			description="COM_WEBLINKS_FLOAT_DESC">
-				<option value="right">COM_WEBLINKS_RIGHT</option>
-				<option value="left">COM_WEBLINKS_LEFT</option>
-				<option value="none">COM_WEBLINKS_NONE</option>
+			label="COM_trainingformS_FLOAT_LABEL"
+			description="COM_trainingformS_FLOAT_DESC">
+				<option value="right">COM_trainingformS_RIGHT</option>
+				<option value="left">COM_trainingformS_LEFT</option>
+				<option value="none">COM_trainingformS_NONE</option>
 		</field>
 
 		<field
@@ -66,8 +66,8 @@
 			type="radio"
 			class="btn-group"
 			default="1"
-			label="COM_WEBLINKS_FIELD_SHOW_TAGS_LABEL"
-			description="COM_WEBLINKS_FIELD_SHOW_TAGS_DESC">
+			label="COM_trainingformS_FIELD_SHOW_TAGS_LABEL"
+			description="COM_trainingformS_FIELD_SHOW_TAGS_DESC">
 			<option value="0">JHIDE</option>
 			<option value="1">JSHOW</option>
 		</field>
@@ -76,7 +76,7 @@
 
 	<fieldset name="category"
 		label="JCATEGORY"
-		description="COM_WEBLINKS_CATEGORY_DESC"
+		description="COM_trainingformS_CATEGORY_DESC"
 	>
 
 		<field
@@ -84,7 +84,7 @@
 			label="JGLOBAL_FIELD_LAYOUT_LABEL"
 			description="JGLOBAL_FIELD_LAYOUT_DESC"
 			menuitems="true"
-			extension="com_weblinks"
+			extension="com_trainingforms"
 			view="category"
 		/>
 
@@ -135,7 +135,7 @@
 		<field name="show_empty_categories" type="radio"
 				class="btn-group"
 				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_WEBLINKS_SHOW_EMPTY_CATEGORIES_DESC"
+				description="COM_trainingformS_SHOW_EMPTY_CATEGORIES_DESC"
 				default="0"
 			>
 				<option value="0">JHIDE</option>
@@ -155,16 +155,16 @@
 		<field name="show_cat_num_links" type="radio"
 			class="btn-group"
 			default="1"
-			description="COM_WEBLINKS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
-			label="COM_WEBLINKS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
+			description="COM_trainingformS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			label="COM_trainingformS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 		>
 			<option value="0">JHIDE</option>
 			<option value="1">JSHOW</option>
 		</field>
 
 		<field name="show_cat_tags" type="radio"
-			label="COM_WEBLINKS_FIELD_SHOW_CAT_TAGS_LABEL"
-			description="COM_WEBLINKS_FIELD_SHOW_CAT_TAGS_DESC"
+			label="COM_trainingformS_FIELD_SHOW_CAT_TAGS_LABEL"
+			description="COM_trainingformS_FIELD_SHOW_CAT_TAGS_DESC"
 			class="btn-group"
 			default="1"
 		>
@@ -176,7 +176,7 @@
 
 	<fieldset name="categories"
 		label="JCATEGORIES"
-		description="COM_WEBLINKS_CATEGORIES_DESC"
+		description="COM_trainingformS_CATEGORIES_DESC"
 	>
 			<field name="show_base_description" type="radio"
 				class="btn-group"
@@ -205,7 +205,7 @@
 				class="btn-group"
 				default="0"
 				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_WEBLINKS_SHOW_EMPTY_CATEGORIES_DESC"
+				description="COM_trainingformS_SHOW_EMPTY_CATEGORIES_DESC"
 			>
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
@@ -224,8 +224,8 @@
 			<field name="show_cat_num_links_cat" type="radio"
 				class="btn-group"
 				default="1"
-				description="COM_WEBLINKS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
-				label="COM_WEBLINKS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
+				description="COM_trainingformS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+				label="COM_trainingformS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 			>
 
 				<option value="0">JHIDE</option>
@@ -237,7 +237,7 @@
 
 	<fieldset name="list_layout"
 		label="JGLOBAL_LIST_LAYOUT_OPTIONS"
-		description="COM_WEBLINKS_LIST_LAYOUT_DESC"
+		description="COM_trainingformS_LIST_LAYOUT_DESC"
 	>
 
 		<field
@@ -274,8 +274,8 @@
 		<field name="show_link_description" type="radio"
 			default="1"
 			class="btn-group"
-			description="COM_WEBLINKS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
-			label="COM_WEBLINKS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
+			description="COM_trainingformS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
+			label="COM_trainingformS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
 		>
 			<option value="0">JHIDE</option>
 			<option value="1">JSHOW</option>
@@ -284,7 +284,7 @@
 		<field name="show_link_hits" type="radio"
 			class="btn-group"
 			default="1"
-			description="COM_WEBLINKS_FIELD_CONFIG_HITS_DESC"
+			description="COM_trainingformS_FIELD_CONFIG_HITS_DESC"
 			label="JGLOBAL_HITS"
 		>
 			<option value="0">JHIDE</option>
@@ -316,7 +316,7 @@
 	<fieldset
 		name="integration"
 		label="JGLOBAL_INTEGRATION_LABEL"
-		description="COM_WEBLINKS_CONFIG_INTEGRATION_SETTINGS_DESC"
+		description="COM_trainingformS_CONFIG_INTEGRATION_SETTINGS_DESC"
 		>
 
 		<field
@@ -338,7 +338,7 @@
 	>
 
 		<field name="rules" type="rules"
-			component="com_weblinks"
+			component="com_trainingforms"
 			filter="rules"
 			validate="rules"
 			label="JCONFIG_PERMISSIONS_LABEL"

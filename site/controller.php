@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * Weblinks Component Controller
+ * trainingforms Component Controller
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksController extends JControllerLegacy
+class trainingformsController extends JControllerLegacy
 {
 	/**
 	 * Method to display a view.
@@ -54,7 +54,7 @@ class WeblinksController extends JControllerLegacy
 		);
 
 		// Check for edit form.
-		if ($vName == 'form' && !$this->checkEditId('com_weblinks.edit.weblink', $id))
+		if ($vName == 'form' && !$this->checkEditId('com_trainingforms.edit.trainingform', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
 			return JError::raiseError(403, JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));

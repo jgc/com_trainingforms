@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -18,26 +18,26 @@ JHtml::_('formbehavior.chosen', 'select');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'weblink.cancel' || document.formvalidator.isValid(document.id('weblink-form')))
+		if (task == 'trainingform.cancel' || document.formvalidator.isValid(document.id('trainingform-form')))
 		{
 			<?php echo $this->form->getField('description')->save(); ?>
-			Joomla.submitform(task, document.getElementById('weblink-form'));
+			Joomla.submitform(task, document.getElementById('trainingform-form'));
 		}
 	}
 </script>
 
-<form action="<?php echo JRoute::_('index.php?option=com_weblinks&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="weblink-form" class="form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_trainingforms&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="trainingform-form" class="form-validate">
 
 	<?php echo JLayoutHelper::render('joomla.edit.item_title', $this); ?>
 
 	<div class="row-fluid">
-		<!-- Begin Weblinks -->
+		<!-- Begin Trainingforms -->
 		<div class="span10 form-horizontal">
 
 	<fieldset>
 		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-			<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_WEBLINKS_NEW_WEBLINK', true) : JText::sprintf('COM_WEBLINKS_EDIT_WEBLINK', $this->item->id, true)); ?>
+			<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_trainingformS_NEW_trainingform', true) : JText::sprintf('COM_trainingformS_EDIT_trainingform', $this->item->id, true)); ?>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('title'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('title'); ?></div>
@@ -58,7 +58,7 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
 				</div>
-				<h4><?php echo JText::_('COM_WEBLINKS_FIELDSET_IMAGES');?></h4>
+				<h4><?php echo JText::_('COM_trainingformS_FIELDSET_IMAGES');?></h4>
 				<div class="control-group">
 					<div class="control-label">
 						<?php echo $this->form->getLabel('images'); ?>
@@ -153,7 +153,7 @@ JHtml::_('formbehavior.chosen', 'select');
 		<?php echo JHtml::_('bootstrap.endTabSet'); ?>
 		</fieldset>
 		</div>
-		<!-- End Weblinks -->
+		<!-- End Trainingforms -->
 		<!-- Begin Sidebar -->
 			<?php echo JLayoutHelper::render('joomla.edit.details', $this); ?>
 		<!-- End Sidebar -->

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -20,7 +20,7 @@ $params = $this->state->get('params');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'weblink.cancel' || document.formvalidator.isValid(document.id('adminForm')))
+		if (task == 'trainingform.cancel' || document.formvalidator.isValid(document.id('adminForm')))
 		{
 			<?php echo $this->form->getField('description')->save(); ?>
 			Joomla.submitform(task);
@@ -33,15 +33,15 @@ $params = $this->state->get('params');
 		<?php echo $this->escape($this->params->get('page_heading')); ?>
 	</h1>
 	<?php endif; ?>
-	<form action="<?php echo JRoute::_('index.php?option=com_weblinks&view=form&w_id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+	<form action="<?php echo JRoute::_('index.php?option=com_trainingforms&view=form&w_id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
 		<div class="btn-toolbar">
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('weblink.save')">
+				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('trainingform.save')">
 					<span class="icon-ok"></span> <?php echo JText::_('JSAVE') ?>
 				</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn" onclick="Joomla.submitbutton('weblink.cancel')">
+				<button type="button" class="btn" onclick="Joomla.submitbutton('trainingform.cancel')">
 					<span class="icon-cancel"></span> <?php echo JText::_('JCANCEL') ?>
 				</button>
 			</div>
@@ -89,7 +89,7 @@ $params = $this->state->get('params');
 			</div>
 		</div>
 
-		<?php if ($this->user->authorise('core.edit.state', 'com_weblinks.weblink')) : ?>
+		<?php if ($this->user->authorise('core.edit.state', 'com_trainingforms.trainingform')) : ?>
 			<div class="control-group">
 				<div class="control-label">
 					<?php echo $this->form->getLabel('state'); ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,17 +9,17 @@
 
 defined('_JEXEC') or die;
 
-JLoader::register('WeblinksHelper', JPATH_ADMINISTRATOR . '/components/com_weblinks/helpers/weblinks.php');
+JLoader::register('trainingformsHelper', JPATH_ADMINISTRATOR . '/components/com_trainingforms/helpers/trainingforms.php');
 JLoader::register('CategoryHelperAssociation', JPATH_ADMINISTRATOR . '/components/com_categories/helpers/association.php');
 
 /**
- * Weblinks Component Association Helper
+ * trainingforms Component Association Helper
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       3.0
  */
-abstract class WeblinksHelperAssociation extends CategoryHelperAssociation
+abstract class trainingformsHelperAssociation extends CategoryHelperAssociation
 {
 	/**
 	 * Method to get the associations for a given item
@@ -43,7 +43,7 @@ abstract class WeblinksHelperAssociation extends CategoryHelperAssociation
 
 		if ($view == 'category' || $view == 'categories')
 		{
-			return self::getCategoryAssociations($id, 'com_weblinks');
+			return self::getCategoryAssociations($id, 'com_trainingforms');
 		}
 
 		return array();

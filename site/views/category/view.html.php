@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML View class for the WebLinks component
+ * HTML View class for the trainingforms component
  *
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_trainingforms
  * @since       1.5
  */
-class WeblinksViewCategory extends JViewLegacy
+class trainingformsViewCategory extends JViewLegacy
 {
 	protected $state;
 
@@ -68,7 +68,7 @@ class WeblinksViewCategory extends JViewLegacy
 		}
 
 		// Prepare the data.
-		// Compute the weblink slug & link url.
+		// Compute the trainingform slug & link url.
 		for ($i = 0, $n = count($items); $i < $n; $i++)
 		{
 			$item		= &$items[$i];
@@ -76,7 +76,7 @@ class WeblinksViewCategory extends JViewLegacy
 
 			if ($item->params->get('count_clicks', $params->get('count_clicks')) == 1)
 			{
-				$item->link = JRoute::_('index.php?option=com_weblinks&task=weblink.go&id='. $item->id);
+				$item->link = JRoute::_('index.php?option=com_trainingforms&task=trainingform.go&id='. $item->id);
 			}
 			else {
 				$item->link = $item->url;
@@ -125,7 +125,7 @@ class WeblinksViewCategory extends JViewLegacy
 		}
 
 		$this->category->tags = new JHelperTags;
-		$this->category->tags->getItemTags('com_weblinks.category', $this->category->id);
+		$this->category->tags->getItemTags('com_trainingforms.category', $this->category->id);
 
 		$this->_prepareDocument();
 
@@ -152,20 +152,20 @@ class WeblinksViewCategory extends JViewLegacy
 		}
 		else
 		{
-			$this->params->def('page_heading', JText::_('COM_WEBLINKS_DEFAULT_PAGE_TITLE'));
+			$this->params->def('page_heading', JText::_('COM_trainingformS_DEFAULT_PAGE_TITLE'));
 		}
 
 		$id = (int) @$menu->query['id'];
 
-		if ($menu && ($menu->query['option'] != 'com_weblinks' || $id != $this->category->id))
+		if ($menu && ($menu->query['option'] != 'com_trainingforms' || $id != $this->category->id))
 		{
 			$this->params->set('page_subheading', $this->category->title);
 			$path = array(array('title' => $this->category->title, 'link' => ''));
 			$category = $this->category->getParent();
 
-			while (($menu->query['option'] != 'com_weblinks' || $id != $category->id) && $category->id > 1)
+			while (($menu->query['option'] != 'com_trainingforms' || $id != $category->id) && $category->id > 1)
 			{
-				$path[] = array('title' => $category->title, 'link' => WeblinksHelperRoute::getCategoryRoute($category->id));
+				$path[] = array('title' => $category->title, 'link' => trainingformsHelperRoute::getCategoryRoute($category->id));
 				$category = $category->getParent();
 			}
 
