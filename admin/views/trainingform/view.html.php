@@ -30,8 +30,8 @@ class TrainingformsViewTrainingform extends JViewLegacy
 	public function display($tpl = null)
 	{
 		$this->state	= $this->get('State');
-		$this->item		= $this->get('Item');
-		$this->form		= $this->get('Form');
+		$this->item	= $this->get('Item');
+		$this->form	= $this->get('Form');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -59,7 +59,7 @@ class TrainingformsViewTrainingform extends JViewLegacy
 		// Since we don't track these assets at the item level, use the category id.
 		$canDo		= TrainingformsHelper::getActions($this->item->catid, 0);
 
-		JToolbarHelper::title(JText::_('COM_trainingformS_MANAGER_trainingform'), 'trainingforms.png');
+		JToolbarHelper::title(JText::_('COM_TRAININGFORMS_MANAGER_TRAININGFORM'), 'trainingforms.png');
 
 		// If not checked out, can save the item.
 		if (!$checkedOut && ($canDo->get('core.edit')||(count($user->getAuthorisedCategories('com_trainingforms', 'core.create')))))
@@ -85,6 +85,6 @@ class TrainingformsViewTrainingform extends JViewLegacy
 		}
 
 		JToolbarHelper::divider();
-		JToolbarHelper::help('JHELP_COMPONENTS_trainingformS_LINKS_EDIT');
+		JToolbarHelper::help('JHELP_COMPONENTS_TRAININGFORMS_LINKS_EDIT');
 	}
 }

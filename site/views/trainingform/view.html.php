@@ -41,7 +41,7 @@ class trainingformsViewtrainingform extends JViewLegacy
 		else
 		{
 			//TODO create proper error handling
-			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'), 'notice');
+			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_TRAININGFORMS_ERROR_TRAININGFORM_NOT_FOUND'), 'notice');
 		}
 	}
 }

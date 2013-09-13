@@ -64,7 +64,7 @@ class TrainingformsViewTrainingforms extends JViewLegacy
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
 
-		JToolbarHelper::title(JText::_('COM_trainingformS_MANAGER_trainingformS'), 'trainingforms.png');
+		JToolbarHelper::title(JText::_('COM_TRAININGFORMS_MANAGER_TRAININGFORMS'), 'trainingforms.png');
 		if (count($user->getAuthorisedCategories('com_trainingforms', 'core.create')) > 0)
 		{
 			JToolbarHelper::addNew('trainingform.add');
@@ -105,7 +105,7 @@ class TrainingformsViewTrainingforms extends JViewLegacy
 			JToolbarHelper::preferences('com_trainingforms');
 		}
 
-		JToolbarHelper::help('JHELP_COMPONENTS_trainingformS_LINKS');
+		JToolbarHelper::help('JHELP_COMPONENTS_TRAININGFORMS_LINKS');
 
 		JHtmlSidebar::setAction('index.php?option=com_trainingforms&view=trainingforms');
 

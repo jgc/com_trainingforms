@@ -32,8 +32,8 @@ class trainingformsViewForm extends JViewLegacy
 
 		// Get model data.
 		$this->state		= $this->get('State');
-		$this->item			= $this->get('Item');
-		$this->form			= $this->get('Form');
+		$this->item		= $this->get('Item');
+		$this->form		= $this->get('Form');
 		$this->return_page	= $this->get('ReturnPage');
 
 		if (empty($this->item->id))
@@ -92,11 +92,11 @@ class trainingformsViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 	{
-		$head = JText::_('COM_trainingformS_FORM_SUBMIT_trainingform');
+		$head = JText::_('COM_TRAININGFORMS_FORM_SUBMIT_TRAININGFORM');
 		}
 		else
 		{
-		$head = JText::_('COM_trainingformS_FORM_EDIT_trainingform');
+		$head = JText::_('COM_TRAININGFORMS_FORM_EDIT_TRAININGFORM');
 		}
 
 		if ($menu)
