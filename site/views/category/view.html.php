@@ -152,7 +152,7 @@ class trainingformsViewCategory extends JViewLegacy
 		}
 		else
 		{
-			$this->params->def('page_heading', JText::_('COM_trainingformS_DEFAULT_PAGE_TITLE'));
+			$this->params->def('page_heading', JText::_('COM_TRAININGFORMS_DEFAULT_PAGE_TITLE'));
 		}
 
 		$id = (int) @$menu->query['id'];
