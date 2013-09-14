@@ -3,7 +3,7 @@
 	<layout
 		title="com_trainingforms_form_view_default_title" option="com_trainingforms_form_view_default_option">
 		<help
-			key="JHELP_MENUS_MENU_ITEM_trainingform_SUBMIT"
+			key="JHELP_MENUS_MENU_ITEM_TRAININGFORM_SUBMIT"
 		/>
 		<message>
 			<![CDATA[com_trainingforms_form_view_default_desc]]>
