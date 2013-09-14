@@ -91,7 +91,7 @@
 		</field>
 
 			<field name="show_cat_num_links" type="list"
-			description="COM_trainingformS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			description="COM_TRAININGFORMS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
 			label="COM_TRAININGFORMS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 		>
 			<option value="">JGLOBAL_USE_GLOBAL</option>

@@ -37,7 +37,7 @@ if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
 
             <?php if ($this->params->get('show_cat_num_links') == 1) :?>
 			<dl class="trainingform-count"><dt>
-				<?php echo JText::_('COM_trainingformS_NUM'); ?></dt>
+				<?php echo JText::_('COM_TRAININGFORMS_NUM'); ?></dt>
 				<dd><?php echo $child->numitems; ?></dd>
 			</dl>
 		<?php endif; ?>
