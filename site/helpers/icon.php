@@ -27,7 +27,7 @@ class JHtmlIcon
 		$url = JRoute::_(trainingformsHelperRoute::getFormRoute(0, base64_encode($uri)));
 		$text = JHtml::_('image', 'system/new.png', JText::_('JNEW'), null, true);
 		$button = JHtml::_('link', $url, $text);
-		$output = '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_trainingformS_FORM_CREATE_trainingform') . '">' . $button . '</span>';
+		$output = '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_TRAININGFORMS_FORM_CREATE_TRAININGFORM') . '">' . $button . '</span>';
 		return $output;
 	}
 
@@ -70,7 +70,7 @@ class JHtmlIcon
 
 		$button = JHtml::_('link', JRoute::_($url), $text);
 
-		$output = '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_trainingformS_EDIT') . ' :: ' . $overlib . '">' . $button . '</span>';
+		$output = '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_TRAININGFORMS_EDIT') . ' :: ' . $overlib . '">' . $button . '</span>';
 
 		return $output;
 	}

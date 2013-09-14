@@ -287,7 +287,7 @@ class trainingformsControllertrainingform extends JControllerForm
 		// Make sure the item was found.
 		if (empty($link))
 		{
-			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'));
+			return JError::raiseWarning(404, JText::_('COM_TRAININGFORMS_ERROR_TRAININGFORM_NOT_FOUND'));
 		}
 
 		// Check whether item access level allows access.
@@ -309,7 +309,7 @@ class trainingformsControllertrainingform extends JControllerForm
 		// Make sure the category was found.
 		if (empty($category))
 		{
-			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_NOT_FOUND'));
+			return JError::raiseWarning(404, JText::_('COM_TRAININGFORMS_ERROR_TRAININGFORM_NOT_FOUND'));
 		}
 
 		// Check whether item access level allows access.
@@ -327,7 +327,7 @@ class trainingformsControllertrainingform extends JControllerForm
 		}
 		else
 		{
-			return JError::raiseWarning(404, JText::_('COM_trainingformS_ERROR_trainingform_URL_INVALID'));
+			return JError::raiseWarning(404, JText::_('COM_TRAININGFORMS_ERROR_TRAININGFORM_URL_INVALID'));
 		}
 	}
 }

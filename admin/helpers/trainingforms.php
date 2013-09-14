@@ -27,12 +27,12 @@ class TrainingformsHelper
 	public static function addSubmenu($vName = 'trainingforms')
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_trainingformS_SUBMENU_trainingformS'),
+			JText::_('COM_TRAININGFORMS_SUBMENU_TRAININGFORMS'),
 			'index.php?option=com_trainingforms&view=trainingforms',
 			$vName == 'trainingforms'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('COM_trainingformS_SUBMENU_CATEGORIES'),
+			JText::_('COM_TRAININGFORMS_SUBMENU_CATEGORIES'),
 			'index.php?option=com_categories&extension=com_trainingforms',
 			$vName == 'categories'
 		);
