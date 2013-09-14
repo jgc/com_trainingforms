@@ -56,7 +56,7 @@ $sortFields = $this->getSortFields();
 <?php endif;?>
 		<div id="filter-bar" class="btn-toolbar">
 			<div class="filter-search btn-group pull-left">
-				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_trainingformS_SEARCH_IN_TITLE');?></label>
+				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_TRAININGFORMS_SEARCH_IN_TITLE');?></label>
 				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_trainingformS_SEARCH_IN_TITLE'); ?>" />
 			</div>
 			<div class="btn-group pull-left">

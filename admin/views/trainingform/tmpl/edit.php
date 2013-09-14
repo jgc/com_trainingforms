@@ -58,7 +58,7 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
 				</div>
-				<h4><?php echo JText::_('COM_trainingformS_FIELDSET_IMAGES');?></h4>
+				<h4><?php echo JText::_('COM_TRAININGFORMS_FIELDSET_IMAGES');?></h4>
 				<div class="control-group">
 					<div class="control-label">
 						<?php echo $this->form->getLabel('images'); ?>
